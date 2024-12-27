@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+
+    <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="src/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Search Bar Styles */
+        .search-container {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .search-container input {
+            padding: 10px;
+            width: 60%;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Product Card Container */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Individual Product Card */
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 10px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .card-rating {
+            margin: 5px 0;
+            color: #f39c12;
+        }
+
+        .card-price {
+            margin: 10px 0;
+        }
+
+        .current-price {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #e74c3c;
+        }
+
+        .cta button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .cta button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Hidden Cards */
+        .hidden {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <marquee behavior="" direction=""><span class="bi bi-flower1"></span> Planting seeds today is cultivating smiles for
+        tomorrow. <span class="bi bi-flower1"></span></marquee>
+    <header>
+        <div class="p-3 mb-2 " id="naav">
+
+            <nav class="navv sticky-top">
+                <div class="firstt"><span class="hoom"><a href="#">Home</a></span>
+                    <span class="hoom"><a href="/Why us.html">Why us?</a></span>
+                    <span class="hoom"><a href="#">Home</a></span>
+                    <span class="hoom"><a href="#">Grow kit</a></span>
+                </div>
+                <div class="secc">
+                    <!-- <input type="text" list="options" placeholder="Search" option="options">
+                    <datalist id="options">
+                        <option><a href="#">plant1</a></option>
+                        <option>plant2</option>
+                        <option>plant3</option>
+                        <option>plant4</option>
+                    </datalist> -->
+                    <span><a href="#"><span class="bi bi-person"></span></a></span>
+                    <span><a href="#"><span class="bi bi-cart"></span></a></span>
+                    <button type="button" class="btn btn-outline-light btn-sm"><a href="login.html">login</a></button>
+                </div>
+
+            </nav>
+        </div>
+    </header>
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="2000">
+                <img src="public/images/aaru1.jpg" class="d-block w-1000" alt="..." height="400px">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+                <img src="public/images/aaru2.jpg" class="d-block w-100" alt="..." height="400px">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+                <img src="public/images/aaru3.jpg" class="d-block w-100" alt="..." height="400px">
+            </div>
+        </div>
+    </div>
+    <div>
+        <!-- below slides -->
+        <div class="headings">Cultivate Happiness: DIY Plant Kits</div>
+        <div class="head-below">
+            <p>Start your gardening journey with all-in-one kits to grow fresh vegetables, herbs, and
+                flowers in any space!</p>
+        </div>
+        <!-- slides -->
+        <div class="video-container">
+            <video autoplay muted loop>
+                <source src="public/images/v1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video autoplay muted loop>
+                <source src="public/images/v2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video autoplay muted loop>
+                <source src="public/images/v1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video autoplay muted loop>
+                <source src="public/images/v2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+       
+    
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input
+            type="text"
+            id="searchBar"
+            placeholder="Search for a product..."
+            onkeyup="filterCards()"
+        />
+    </div>
+
+    <!-- Product Cards -->
+    <div class="card-container" id="cardContainer">
+        <a href="/inner1.html" target="_blank" style="text-decoration: none;">
+        <div class="card" data-name="Treasures Cosmos Tomato Kit">
+            <img src="public/images/Tomata.jpg" alt="Treasures Cosmos Tomato Kit">
+            <div class="card-content">
+                <h3 class="card-title">Treasures Cosmos Tomato Kit</h3>
+                <div class="card-rating">★★★★★ (36 reviews)</div>
+                <div class="card-price">
+                    <span class="current-price">₹325.00</span>
+                    <span class="original-price">₹500.00</span>
+                </div>
+                <div class="cta">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <a href="/inner2.html" style="text-decoration: none;">
+        <div class="card" data-name="Treasures Cherry Grow Kit">
+            <img src="public/images/cheeereeyyyyyyyy.ico" alt="Treasures Cherry Grow Kit">
+            <div class="card-content">
+                <h3 class="card-title">Treasures Cherry Grow Kit</h3>
+                <div class="card-rating">★★★★★ (4 reviews)</div>
+                <div class="card-price">
+                    <span class="current-price">₹415.00</span>
+                    <span class="original-price">₹800.00</span>
+                </div>
+                <div class="cta">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        </a>
+
+        <a href="/inner4.html" style="text-decoration: none;">
+        <div class="card" data-name="Lettuce Grow Kit">
+            <img src="public/images/lettche.jpg" alt="Lettuce Grow Kit">
+            <div class="card-content">
+                <h3 class="card-title">Lettuce Grow Kit</h3>
+                <div class="card-rating">★★★★★ (1 review)</div>
+                <div class="card-price">
+                    <span class="current-price">₹415.00</span>
+                    <span class="original-price">₹800.00</span>
+                </div>
+                <div class="cta">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        </a>
+        <a href="/inner3.html" style="text-decoration: none;">
+
+        <div class="card" data-name="Spinach Grow Kit">
+            <img src="public/images/dahila.jpg" alt="Spinach Grow Kit">
+            <div class="card-content">
+                <h3 class="card-title">Dahila Grow Kit</h3>
+                <div class="card-rating">★★★★★ (1 review)</div>
+                <div class="card-price">
+                    <span class="current-price">₹415.00</span>
+                    <span class="original-price">₹800.00</span>
+                </div>
+                <div class="cta">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        </a>
+    
+
+ <br><br>
+   
+
+    <!-- Product Cards -->
+    <div class="card-container" id="cardContainer">
+        <!-- Card 1 -->
+         <a href="/inner6.html">
+        <div class="card" data-name="Spinach Grow Kit">
+            <img src="public/images/spanichh.jpg" alt="Spinach Grow Kit">
+            <div class="card-content">
+                <h3 class="card-title">Spinach Grow Kit</h3>
+                <div class="card-rating">★★★★★ (1 review)</div>
+                <div class="card-price">
+                    <span class="current-price">₹415.00</span>
+                    <span class="original-price">₹800.00</span>
+                </div>
+                <div class="cta">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div></a>
+
+        <!-- Card 2 -->
+         <a href="/inner9.html">
+        <div class="card" data-name="Cucumber Grow Kit">
+            <img src="public/images/cucumber.jpg" alt="Cucumber Grow Kit">
+            <div class="card-content">
+                <h3 class="card-title">Cucumber Grow Kit</h3>
+                <div class="card-rating">★★★★★ (4 reviews)</div>
+                <div class="card-price">
+                    <span class="current-price">₹415.00</span>
+                    <span class="original-price">₹800.00</span>
+                </div>
+                <div class="cta">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </a>
+
+        <!-- Card 3 -->
+         <a href="/inner7.html">
+        <div class="card" data-name="Temple Offerings Kit">
+            <img src="public/images/tulsi.ico" alt="Temple Offerings Kit">
+            <div class="card-content">
+                <h3 class="card-title">Temple Offerings Kit - Tulsi, Genda, Aparajita</h3>
+                <div class="card-rating">★★★★★ (1 review)</div>
+                <div class="card-price">
+                    <span class="current-price">₹415.00</span>
+                    <span class="original-price">₹800.00</span>
+                </div>
+                <div class="cta">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        </a>
+
+        <!-- Card 4 -->
+         <a href="/inner8.html">
+        <div class="card" data-name="Chillies Kit">
+            <img src="public/images/chiiliiyy.jpg" alt="Chillies Kit">
+            <div class="card-content">
+                <h3 class="card-title">Chillies Kit – Grow Spicy Green, Jalapeno, Bell Peppers</h3>
+                <div class="card-rating">★★★★★ (1 review)</div>
+                <div class="card-price">
+                    <span class="current-price">₹415.00</span>
+                    <span class="original-price">₹800.00</span>
+                </div>
+                <div class="cta">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </a>
+        <br><br>
+
+        <!-- Card 5 -->
+         <a href="inner17.html">
+        <div class="card" data-name="Treasures Marigold Kit">
+            <img src="public/images/Treasures Marigold Kit.jpg" alt="Treasures Marigold Kit">
+            <div class="card-content">
+                <h3 class="card-title">Treasures Marigold Kit</h3>
+                <div class="card-rating">★★★★★ (1 review)</div>
+                <div class="card-price">
+                    <span class="current-price">₹415.00</span>
+                    <span class="original-price">₹800.00</span>
+                </div>
+                <div class="cta">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        </a>
+
+        <!-- Card 6 -->
+         <a href="inner18.html">
+        <div class="card" data-name="Corriander Grow Kit">
+            <img src="public/images/Corriander.jpg" alt="Corriander Grow Kit">
+            <div class="card-content">
+                <h3 class="card-title">Corriander Grow Kit</h3>
+                <div class="card-rating">★★★★★ (1 review)</div>
+                <div class="card-price">
+                    <span class="current-price">₹415.00</span>
+                    <span class="original-price">₹800.00</span>
+                </div>
+                <div class="cta">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </a>
+
+        <!-- Card 7 -->
+         <a href="inner12.html">
+        <div class="card" data-name="Sunflower Grow Kit">
+            <img src="public/images/sunflower.jpg" alt="Sunflower Grow Kit">
+            <div class="card-content">
+                <h3 class="card-title">Sunflower Grow Kit</h3>
+                <div class="card-rating">★★★★★ (1 review)</div>
+                <div class="card-price">
+                    <span class="current-price">₹415.00</span>
+                    <span class="original-price">₹800.00</span>
+                </div>
+                <div class="cta">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a href="/inner14.html">
+        <div class="card" data-name="Christmas Cactus Grow Kit">
+            <img src="public/images/Christmas Cactus kit.jpg" alt="Tulsi Grow Kit">
+            <div class="card-content">
+                <h3 class="card-title">Christmas Cactus Grow Kit</h3>
+                <div class="card-rating">★★★★★ (1 review)</div>
+                <div class="card-price">
+                    <span class="current-price">₹415.00</span>
+                    <span class="original-price">₹800.00</span>
+                </div>
+                <div class="cta">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        </a>
+    </div>
+<br><br>
+
+    <!-- JavaScript for Filtering -->
+    
+
+
+    <!-- JavaScript for Filtering -->
+    <script>
+        function filterCards() {
+            const searchValue = document.getElementById('searchBar').value.trim().toLowerCase();
+            const cards = document.querySelectorAll('.card');
+
+            cards.forEach(card => {
+                const productName = card.getAttribute('data-name').toLowerCase();
+                if (productName.includes(searchValue)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+
+
+                <!-- Side Cart -->
+                <div class="side-cart" id="sideCart">
+                    <div class="side-cart-header">
+                        Your Cart
+                        <button class="close-cart" onclick="closeCart()">×</button>
+                    </div>
+                    <div class="side-cart-body" id="cartItems">
+                        <!-- Cart items will be dynamically added here -->
+                    </div>
+                    <div class="side-cart-footer">
+                        <div class="total">Total: ₹<span id="cartTotal">0</span></div>
+                        <button class="checkout-btn">Proceed to Checkout</button>
+                    </div>
+                </div>
+
+                <script>
+                    let cartTotal = 0;
+
+                    function addToCart(title, price, image) {
+                        const cart = document.getElementById('sideCart');
+                        const cartItems = document.getElementById('cartItems');
+                        const cartTotalElement = document.getElementById('cartTotal');
+
+                        // Create cart item
+                        const cartItem = document.createElement('div');
+                        cartItem.classList.add('cart-item');
+                        cartItem.innerHTML = `
+              <img src="${image}" alt="${title}">
+              <div class="cart-item-details">
+                <div class="cart-item-title">${title}</div>
+                <div class="cart-item-price">₹${price}</div>
+              </div>
+            `;
+
+                        // Add cart item to cart
+                        cartItems.appendChild(cartItem);
+
+                        // Update total
+                        cartTotal += price;
+                        cartTotalElement.textContent = cartTotal;
+
+                        // Open cart
+                        cart.classList.add('open');
+                    }
+
+                    function closeCart() {
+                        const cart = document.getElementById('sideCart');
+                        cart.classList.remove('open');
+                    }
+                </script>
+                <section class="features-section">
+                    <div class="feature">
+                        <img src="public/images/g1.avif" alt="Shipping">
+                        <h3>SHIPPING</h3>
+                        <p>Free Shipping on Prepaid orders above Rs. 598. Dispatches in 24 hours</p>
+                    </div>
+                    <div class="feature">
+                        <img src="public/images/g2.avif" alt="Expert Guidance">
+                        <h3>EXPERT GUIDANCE</h3>
+                        <p>We are available from Monday to Saturday to answer your questions.</p>
+                    </div>
+                    <div class="feature">
+                        <img src="public/images/g3.avif" alt="Secure Payment">
+                        <h3>SECURE PAYMENT</h3>
+                        <p>Your payment information is processed securely.</p>
+                    </div>
+                    <div class="feature">
+                        <img src="public/images/g4.avif" alt="COD Available">
+                        <h3>COD AVAILABLE</h3>
+                        <p>Yes. We have Cash-On-Delivery option for most of the locations across India.</p>
+                    </div>
+                </section>
+
+                </script>
+<!-- shilpiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii -->
+                <div class="container">
+                    <!-- Left Section -->
+                    <div class="image-section">
+                        <img src="public/images/explore1.jpg" alt="Gardening Tools Kit">
+                    </div>
+
+                    <!-- Right Section -->
+                    <div class="info-section">
+                        <div class="siide">
+                            <h1>6 in 1 Gardening Tools Kit</h1>
+                            <p><strong>Contents-</strong></p>
+                            <ul>
+                                <li>1 Hand Cultivator</li>
+                                <li>1 Hand Fork</li>
+                                <li>1 Trowel</li>
+                                <li>1 Hand Weeder</li>
+                                <li>1 Pair of Garden Hand Gloves</li>
+                                <li>1 Pruner Cutter</li>
+                                <li>1 Tool box</li>
+                            </ul>
+                            <button class="view-collection-btn">View Collection</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- sc2 -->
+                <div class="cont">
+                    <div class="contenta">
+                        <h1>Organic Nutri-Shots Fertilizer for Indoor Plants</h1>
+                        <ul>
+                            <li>Pure & Safe</li>
+                            <li>Does NOT burn plants</li>
+                            <li>No Odour</li>
+                            <li>Suitable for all houseplants</li>
+                        </ul>
+                        <button>VIEW PRODUCT</button>
+                    </div>
+                    <div class="imagea">
+                        <img src="public/images/explore2.jpg" alt="Organic Nutri-Shots">
+                        </div>
+                        
+                </div>
+</body>
+
+<!-- footer ke uper pink -->
+<section class="footer-upside" style="background-color:pink;  color:white;">
+    <div style="padding: 30px; margin-left: 200px; gap: 50px; display: flex; gap: 190px; height: 150px;">
+        <img src="public/images/hac1.avif">
+        <img src="public/images/hack2.avif">
+        <img src="public/images/hack3.avif">
+        <img src="public/images/hack4.avif">
+    </div>
+
+    <div class="crcl">
+        <div style="color: black;">
+            <span class="imag" style="margin-left: 200px;">NON GMO SEEDS</span>
+            <span class="imag" style="margin-left: 180px;">Easy to grow</span>
+            <span class="imag" style="margin-left: 180px;">Organic Fertilizer</span>
+            <span class="imag" style="margin-left: 160px;">All Inclusive Kit</span>
+        </div>
+
+    </div>
+    <!-- copy -->
+    <div class="cont">
+        <div class="content">
+            <h1>Organic Nutri-Shots Fertilizer for Indoor Plants</h1>
+            <ul>
+                <li>Pure & Safe</li>
+                <li>Does NOT burn plants</li>
+                <li>No Odour</li>
+                <li>Suitable for all houseplants</li>
+            </ul>
+            <button>VIEW PRODUCT</button>
+        </div>
+        <div class="image">
+            <img src="public/images/explore2.jpg" alt="Organic Nutri-Shots">
+            
+    </div>
+    <!-- footer -->
+<footer style="color: white;">
+    <div style="margin-left: 40px;">
+        <div><a href=""><b><u>SHOP</u></b></div><br></a>
+        <span>View Entire Range</span><br>
+        <span>Refund policy</span><br>
+        <span>Privacy Policy</span><br>
+        <span>Terms of Service</span><br>
+    </div>
+    <div>
+        <div><a href=""><b><u>FOLLOW US</u></b></div></a><br>
+        <span>Make sure you follow us on</span><br>
+        <button class="btn btn-warning"><span class="bi bi-facebook"></span></button>
+        <button class="btn btn-primary"><span class="bi bi-instagram"></span></button>
+        <button class="btn btn-danger"><span class="bi bi-twitter"></span></button>
+    </div>
+    <div>
+        <div><a href=""><b><u>CONTACT US</u></b></a></div>
+        <span><a href="link"></a></span><br>
+        <span><b>For Order related queries</b>: call on <u>9580XXXXXX</u></span><br>
+        <span><b>For Corporate Orders or Gifting</b> : call on <br><u>800XXXXXXX</u></span>
+    </div>
+    <div style="margin-left: 25px;">
+        <div><a href=""><b><u>NEWSLETTER</u></b></a></div><br>
+        <span>Stay updated with our offers and news</span><br>
+        <span>
+            <form action="">
+                <label for=""><b><u>Your e-mail</u></b></label><br>
+                <input type="email" name="data" id="" placeholder="Enter your email" width="50px"
+                    style="background-color: rgb(197, 171, 171);">
+                <a href=""><span style="background-color: darkgreen; padding: 6px; margin:-5.5px;"
+                        class="bi bi-arrow-right"></span> </a>
+            </form>
+        </span>
+    </div>
+    <div style="padding-top: 50px; margin-left: 35px; font-family: cursive;">
+        <span>Growing together</span>
+        <span class="bi bi-square-fill" style="margin-left: 10px; font-size: 8px;"></span>
+    </div>
+    <div style="padding-top: 50px; margin-left: -120px;">
+        <span>Powered by bitwise Union</span>
+    </div>
+    
+</footer>
+
+</html>

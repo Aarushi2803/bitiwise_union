@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Search</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Search Bar Styles */
+        .search-container {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .search-container input {
+            padding: 10px;
+            width: 60%;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Product Card Container */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Individual Product Card */
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 10px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .card-rating {
+            margin: 5px 0;
+            color: #f39c12;
+        }
+
+        .card-price {
+            margin: 10px 0;
+        }
+
+        .current-price {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #e74c3c;
+        }
+
+        .cta button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .cta button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Hidden Cards */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input
+            type="text"
+            id="searchBar"
+            placeholder="Search for a product..."
+            onkeyup="filterCards()"
+        />
+    </div>
+
+    <!-- Product Cards -->
+    <div class="card-container" id="cardContainer">
+        <div class="card" data-name="Treasures Cosmos Tomato Kit">
+            <img src="public/images/Tomata.jpg" alt="Treasures Cosmos Tomato Kit">
+            <div class="card-content">
+                <h3 class="card-title">Treasures Cosmos Tomato Kit</h3>
+                <div class="card-rating">★★★★★ (36 reviews)</div>
+                <div class="card-price">
+                    <span class="current-price">₹325.00</span>
+                    <span class="original-price">₹500.00</span>
+                </div>
+                <div class="cta">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-name="Treasures Cherry Grow Kit">
+            <img src="public/images/cheeereeyyyyyyyy.ico" alt="Treasures Cherry Grow Kit">
+            <div class="card-content">
+                <h3 class="card-title">Treasures Cherry Grow Kit</h3>
+                <div class="card-rating">★★★★★ (4 reviews)</div>
+                <div class="card-price">
+                    <span class="current-price">₹415.00</span>
+                    <span class="original-price">₹800.00</span>
+                </div>
+                <div class="cta">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-name="Lettuce Grow Kit">
+            <img src="public/images/lettche.jpg" alt="Lettuce Grow Kit">
+            <div class="card-content">
+                <h3 class="card-title">Lettuce Grow Kit</h3>
+                <div class="card-rating">★★★★★ (1 review)</div>
+                <div class="card-price">
+                    <span class="current-price">₹415.00</span>
+                    <span class="original-price">₹800.00</span>
+                </div>
+                <div class="cta">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-name="Spinach Grow Kit">
+            <img src="public/images/spanichh.jpg" alt="Spinach Grow Kit">
+            <div class="card-content">
+                <h3 class="card-title">Spinach Grow Kit</h3>
+                <div class="card-rating">★★★★★ (1 review)</div>
+                <div class="card-price">
+                    <span class="current-price">₹415.00</span>
+                    <span class="original-price">₹800.00</span>
+                </div>
+                <div class="cta">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <br><br>
+   
+
+    <!-- Product Cards -->
+    <div class="card-container" id="cardContainer">
+        <!-- Card 1 -->
+        <div class="card" data-name="Spinach Grow Kit">
+            <img src="public/images/spanichh.jpg" alt="Spinach Grow Kit">
+            <div class="card-content">
+                <h3 class="card-title">Spinach Grow Kit</h3>
+                <div class="card-rating">★★★★★ (1 review)</div>
+                <div class="card-price">
+                    <span class="current-price">₹415.00</span>
+                    <span class="original-price">₹800.00</span>
+                </div>
+                <div class="cta">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card" data-name="Cucumber Grow Kit">
+            <img src="public/images/cucumber.jpg" alt="Cucumber Grow Kit">
+            <div class="card-content">
+                <h3 class="card-title">Cucumber Grow Kit</h3>
+                <div class="card-rating">★★★★★ (4 reviews)</div>
+                <div class="card-price">
+                    <span class="current-price">₹415.00</span>
+                    <span class="original-price">₹800.00</span>
+                </div>
+                <div class="cta">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card" data-name="Temple Offerings Kit">
+            <img src="public/images/tulsi.ico" alt="Temple Offerings Kit">
+            <div class="card-content">
+                <h3 class="card-title">Temple Offerings Kit - Tulsi, Genda, Aparajita</h3>
+                <div class="card-rating">★★★★★ (1 review)</div>
+                <div class="card-price">
+                    <span class="current-price">₹415.00</span>
+                    <span class="original-price">₹800.00</span>
+                </div>
+                <div class="cta">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card" data-name="Chillies Kit">
+            <img src="public/images/chiiliiyy.jpg" alt="Chillies Kit">
+            <div class="card-content">
+                <h3 class="card-title">Chillies Kit – Grow Spicy Green, Jalapeno, Bell Peppers</h3>
+                <div class="card-rating">★★★★★ (1 review)</div>
+                <div class="card-price">
+                    <span class="current-price">₹415.00</span>
+                    <span class="original-price">₹800.00</span>
+                </div>
+                <div class="cta">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <br><br>
+
+        <!-- Card 5 -->
+        <div class="card" data-name="Treasures Marigold Kit">
+            <img src="public/images/Treasures Marigold Kit.jpg" alt="Treasures Marigold Kit">
+            <div class="card-content">
+                <h3 class="card-title">Treasures Marigold Kit</h3>
+                <div class="card-rating">★★★★★ (1 review)</div>
+                <div class="card-price">
+                    <span class="current-price">₹415.00</span>
+                    <span class="original-price">₹800.00</span>
+                </div>
+                <div class="cta">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="card" data-name="Corriander Grow Kit">
+            <img src="public/images/Corriander.jpg" alt="Corriander Grow Kit">
+            <div class="card-content">
+                <h3 class="card-title">Corriander Grow Kit</h3>
+                <div class="card-rating">★★★★★ (1 review)</div>
+                <div class="card-price">
+                    <span class="current-price">₹415.00</span>
+                    <span class="original-price">₹800.00</span>
+                </div>
+                <div class="cta">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="card" data-name="Sunflower Grow Kit">
+            <img src="public/images/sunflower.jpg" alt="Sunflower Grow Kit">
+            <div class="card-content">
+                <h3 class="card-title">Sunflower Grow Kit</h3>
+                <div class="card-rating">★★★★★ (1 review)</div>
+                <div class="card-price">
+                    <span class="current-price">₹415.00</span>
+                    <span class="original-price">₹800.00</span>
+                </div>
+                <div class="cta">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="card" data-name="Tulsi Grow Kit">
+            <img src="public/images/tulsi.ico" alt="Tulsi Grow Kit">
+            <div class="card-content">
+                <h3 class="card-title">Tulsi Grow Kit</h3>
+                <div class="card-rating">★★★★★ (1 review)</div>
+                <div class="card-price">
+                    <span class="current-price">₹415.00</span>
+                    <span class="original-price">₹800.00</span>
+                </div>
+                <div class="cta">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JavaScript for Filtering -->
+    
+
+
+    <!-- JavaScript for Filtering -->
+    <script>
+        function filterCards() {
+            const searchValue = document.getElementById('searchBar').value.trim().toLowerCase();
+            const cards = document.querySelectorAll('.card');
+
+            cards.forEach(card => {
+                const productName = card.getAttribute('data-name').toLowerCase();
+                if (productName.includes(searchValue)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
